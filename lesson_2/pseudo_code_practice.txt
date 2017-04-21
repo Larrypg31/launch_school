@@ -1,7 +1,43 @@
-a method that returns the sum of two integers Note I'm going to assume your passing the numbers into the method
+a method that returns the sum of two integers
+
+the method would receive 2 numbers
+add the 2 numbers together
 
 
 
+START
+READ num1 and num2 values passed into method and add them together
 
-a method that takes an array of strings, and returns a string that is all those strings concatenated together
-a method that takes an array of integers, and returns a new array with every other element
+END
+
+2.a method that takes an array of strings, and returns a string that is all those strings concatenated together
+
+The method will receive an array of strings
+create a variable to hold your new string
+iterate over the array and add each string in the array to the  string variable and separate them with a space when needed
+
+
+START
+READ the array of strings from passed into the function
+SET a variable string
+WHILE iteration < array
+  SET string << current array iteration
+  if array iteration != array last iteration
+    SET string << " "
+RETURN string
+END
+ 
+3. a method that takes an array of integers, and returns a new array with every other element
+
+The method will receive an array of integers
+Set the new array equal to every other index in the array, start with the first index of 0
+return the new array
+
+START
+  READ passed array = array
+  SET new_array to an empty array
+  READ array with index and value
+    IF index %2=0
+      new_array << value
+  RETURN the new array
+end
