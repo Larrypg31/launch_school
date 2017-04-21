@@ -1,0 +1,7 @@
+a method that returns the sum of two integers Note I'm going to assume your passing the numbers into the method
+
+
+
+
+a method that takes an array of strings, and returns a string that is all those strings concatenated together
+a method that takes an array of integers, and returns a new array with every other element
