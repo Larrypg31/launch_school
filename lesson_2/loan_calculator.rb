@@ -92,7 +92,7 @@ loop do
   end
 
   m = calculate_pymnt(amt, j, n)
-  prompt("#{name} your monthly pymnt is #{m}")
+  prompt("#{name} your monthly pymnt is $#{m}")
   prompt("Would you like to calculate another loan? (Y/N)")
   answer = gets.chomp
   answer = answer.downcase
