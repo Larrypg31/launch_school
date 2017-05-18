@@ -3,6 +3,9 @@ require 'pry'
 INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
+WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
+                [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # columns
+                [[1, 5, 9], [3, 5, 7]] # diagonals
 
 # computer_score = 0
 # player_score = 0
@@ -16,11 +19,15 @@ def display_board(brd)
   system 'clear'
 
   prompt "You're an X. Computer is O."
+
   puts ""
-  puts "     |     |"
-  puts "  #{brd[1]}  |  #{brd[2]}  |  #{brd[3]}"
-  puts "     |     |"
-  puts "-----+-----+------"
+  (1..3).each do |num|
+    puts "     |     |"
+    puts "  #{brd[(num * 3) - 2]}  |  #{brd[(num * 3) - 1]}  |  #{brd[num * 3]}"
+    puts "     |     |"
+    puts "-----+-----+------" unless num == 3
+  end
+=begin
   puts "     |     |"
   puts "  #{brd[4]}  |  #{brd[5]}  |  #{brd[6]}"
   puts "     |     |"
@@ -28,8 +35,10 @@ def display_board(brd)
   puts "     |     |"
   puts "  #{brd[7]}  |  #{brd[8]}  |  #{brd[9]}"
   puts "     |     |"
+=end
   puts ""
 end
+
 # rubocop:enable Metrics/AbcSize
 
 def initialize_board
@@ -67,18 +76,10 @@ def someone_won?(brd)
 end
 
 def detect_winner(brd)
-  winning_lines = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
-                  [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # columns
-                  [[1, 5, 9], [3, 5, 7]] # diagonals
-
-  winning_lines.each do |line|
-    if brd[line[0]] == PLAYER_MARKER &&
-       brd[line[1]] == PLAYER_MARKER &&
-       brd[line[2]] == PLAYER_MARKER
+  WINNING_LINES.each do |line|
+    if line.all? { |square| brd[square] == PLAYER_MARKER }
       return 'Player'
-    elsif brd[line[0]] == COMPUTER_MARKER &&
-          brd[line[1]] == COMPUTER_MARKER &&
-          brd[line[2]] == COMPUTER_MARKER
+    elsif line.all? { |square| brd[square] == COMPUTER_MARKER }
       return 'Computer'
     end
   end
