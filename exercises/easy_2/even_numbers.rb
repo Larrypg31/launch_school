@@ -1,1 +1,1 @@
-puts (1..99).select{|num| num.even?}
+puts (1..99).select(&:even?)

@@ -5,7 +5,6 @@ end
 
 SUITS = %w[♠ ♦ ♥ ♣]
 CARD_NAMES = %w[2 3 4 5 6 7 8 9 10 Jack Queen King Ace]
-DEALERSTAY = 17
 
 def build_card_value(name, value, other_value = nil)
   {
@@ -333,5 +332,3 @@ loop do # round loop
   end
   break if answer.downcase.start_with?('n')
 end
-
-#

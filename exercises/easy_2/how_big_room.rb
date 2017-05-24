@@ -19,4 +19,5 @@ prompt("Please enter the width of the room in meters")
 
 width = gets.chomp.to_f
 
-prompt "The area of the room is #{square(length, width)} square meters (#{to_feet(square(length, width))} square feet)."
+prompt "The area of the room is #{square(length, width)} square meters" \
+       "#{to_feet(square(length, width))} square feet."
