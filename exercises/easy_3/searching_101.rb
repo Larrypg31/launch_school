@@ -2,13 +2,14 @@ def prompt(msg)
   puts ">> #{msg}"
 end
 
-def valid_number?(num)
+def valid_integer?(num)
   num.to_i.to_s == num
 end
 
 numbers = []
 search_number = nil
 
+count = nil
 6.times do |i|
   count = i + 1
 
@@ -22,7 +23,7 @@ search_number = nil
   when 6
     prompt 'Please enter the last number:'
   else
-    prompt 'Please enter the #{count}th number'
+    prompt "Please enter the #{count}th number"
   end
 
   number = gets.chomp
@@ -31,9 +32,9 @@ search_number = nil
     puts prompt 'Please enter an integer:'
     number = gets.chomp
   end
-end
 
-count < 6 ? numbers << integer.to_i : search_number = integer.to_i
+  count < 6 ? numbers << number.to_i : search_number = number.to_i
+end
 
 if numbers.include?(search_number)
   puts "The number #{search_number} does appear in #{numbers}."
