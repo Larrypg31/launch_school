@@ -257,7 +257,6 @@ end
 shoe = build_shoe(number_of_decks)
 init_game(shoe)
 loop do # round loop
-  puts shoe.size
   init_round(player_details, dealer_details)
 
   if shoe.size < (52 * number_of_decks) * 0.35
